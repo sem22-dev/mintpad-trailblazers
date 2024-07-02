@@ -42,12 +42,25 @@ const TopCreators = () => {
       <div className="grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-5 gap-4 mt-12">
         {/* Rank 2 to 11 */}
         {profiles.map(profile => (
-          <div key={profile.rank} className="border border-[#4f4f4f] rounded-xl py-8 flex bg-[#151515] flex-col justify-center gap-2 items-center text-white relative">
-            <div className="absolute top-4 left-4 bg-[#232229] text-[#858584] w-8 h-8 flex items-center justify-center rounded-full text-base">{profile.rank}</div>
-            <Image src={profile.imageUrl} width={500} height={500} alt="Profile" className="w-28 h-28 rounded-full" />
-            <div className="text-center py-1">{profile.name}</div>
-            <div className="text-center text-xs font-mono"><span className='text-[#636363] text-sm'>Total sales:</span> {profile.totalMints}</div>
-          </div>
+         <div key={profile.rank} className="relative  gap-2 rounded-xl bg-[#151515] text-white">
+         <div className="absolute inset-0 rounded-xl p-[2px] z-0">
+           <div className="h-full w-full rounded-xl bg-[#151515]"></div>
+         </div>
+         <div className="relative border rounded-xl border-[#2f2f2f] z-10 flex py-12 flex-col items-center justify-center gap-2">
+           <div className="absolute top-4 left-4 flex h-8 w-8 items-center justify-center rounded-full bg-[#232229] text-base text-[#858584]">
+             {profile.rank}
+           </div>
+           <Image src={profile.imageUrl} width={112} height={112} alt="Profile" className="h-28 w-28 rounded-full" />
+           <div className="py-1 text-center">{profile.name}</div>
+           <div className="text-center text-xs font-mono">
+             <span className="text-sm text-[#636363]">Total sales:</span> {profile.totalMints}
+           </div>
+         </div>
+       </div>
+       
+       
+       
+       
         ))}
       </div>
     </div>
